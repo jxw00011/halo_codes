@@ -1,0 +1,42 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+    <style>                     
+        .responsive-div {
+            width: 70%;
+        }
+
+        @media screen and (max-width: 768px) {
+            .responsive-div {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+ 
+<div class="responsive-div" id="aplayer"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script>
+    const ap = new APlayer({
+        container: document.getElementById('aplayer'),
+        fixed: false,                //是否附着页面底部，否为false
+        autoplay: false,             //是否自动播放，否为false,移动端不能生效
+        loop: 'none',               //	音频循环播放, 可选值: 'all', 'one', 'none'
+        volume: 0.6,                //初始音量（0~1）
+        lrcType: 3,                 //歌词模式（1、HTML模式 2、js模式 3、lrc文件模式）
+        mutex: true,                //互斥模式：阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
+        order: 'random',            //音频循环顺序（'list'：顺序, 'random'：随机）
+        preload: 'none',            //预加载（'none'：不预加载, 'metadata'：元数据, 'auto'：自动）
+        listFolded: false,          //列表默认折叠，开启为true
+        theme: '#ee8243',           //主题颜色
+        audio: [{
+            name: 'One Last You',           //歌曲名称
+            artist: 'Jen Brid',       //歌曲作者
+            url: 'https://991198.xyz/upload/Jen%20Bird%20-%20One%20Last%20You.mp3',         //歌曲源文件地址
+            cover: 'https://991198.xyz/upload/xb2.jpg',     //歌曲封面地址
+            lrc:  'https://991198.xyz/upload/OneLastYou.lrc',        //歌曲的歌词文件
+            theme: '#eeeeee'        //主题颜色（优先）
+        }]
+    });
+</script>
